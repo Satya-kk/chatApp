@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Realtime Chat App</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- username modal -->
+  <div id="usernameModal" class="modal">
+    <div class="modal-content">
+      <h2>Choose a username</h2>
+      <input id="usernameInput" type="text" placeholder="Enter username" maxlength="20" />
+      <div class="modal-row">
+        <button id="btnChoose">Join</button>
+      </div>
+      <p class="note">Username must be unique (no one else can use it while you're connected).</p>
+      <p id="usernameError" class="error"></p>
+    </div>
+  </div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <header>
+        <h1>Chat Rooms</h1>
+        <div class="small" id="myUsername"></div>
+      </header>
+
+      <div class="new-room">
+        <input id="newRoomInput" placeholder="New room name" maxlength="30" />
+        <button id="createRoomBtn">Create</button>
+      </div>
+
+      <ul id="roomsList" class="rooms"></ul>
+
+      <section class="participants">
+        <h3>Participants</h3>
+        <ul id="participantsList"></ul>
+      </section>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-header">
+        <div>
+          <h2 id="currentRoom">Not in a room</h2>
+          <div id="roomStatus" class="small">Join or create a room to start chatting</div>
+        </div>
+        <div class="header-actions">
+          <button id="leaveRoomBtn" class="danger">Leave</button>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="messageForm" class="message-form">
+        <input id="messageInput" autocomplete="off" placeholder="Type message and press Enter" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>

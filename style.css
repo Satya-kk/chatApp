@@ -1,0 +1,79 @@
+:root{
+  --bg:#0f1724;
+  --panel:#0b1220;
+  --accent:#2dd4bf;
+  --muted:#9aa5b1;
+  --danger:#ff6b6b;
+  --card:#0f1724;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#071028 0%, #0b1220 100%);
+  color:#e6eef3;
+  min-height:100vh;
+}
+
+/* modal for username */
+.modal{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background: rgba(0,0,0,0.6);
+  z-index:50;
+}
+.modal-content{
+  background: linear-gradient(180deg,#061226,#0e1624);
+  padding:22px; border-radius:12px; width:360px; box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+.modal-content h2{margin:0 0 8px 0}
+.modal-content input{width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); color:inherit; margin-bottom:10px}
+.modal-row{display:flex; justify-content:flex-end}
+button{cursor:pointer}
+#btnChoose{padding:8px 12px; border-radius:8px; border:none; background:var(--accent); color:#012; font-weight:600}
+.error{color:#ffb3b3; margin-top:8px; font-size:0.9rem}
+.note{color:var(--muted); font-size:0.9rem}
+
+/* layout */
+.app{display:flex; gap:18px; padding:18px; max-width:1200px; margin:30px auto; align-items:stretch}
+.sidebar{width:290px; background:rgba(255,255,255,0.02); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)}
+.sidebar header{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px}
+.small{font-size:0.85rem; color:var(--muted)}
+.new-room{display:flex; gap:8px; margin-bottom:12px}
+.new-room input{flex:1; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit}
+.new-room button{padding:8px 10px; border-radius:8px; border:none; background:#3b82f6}
+
+/* rooms */
+.rooms{list-style:none; padding:0; margin:0; max-height:320px; overflow:auto}
+.rooms li{padding:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; background:rgba(255,255,255,0.01); cursor:pointer}
+.rooms li.active{background:rgba(45,212,191,0.08); border:1px solid rgba(45,212,191,0.08)}
+
+/* participants */
+.participants{margin-top:12px}
+.participants ul{list-style:none; padding:0; margin:0; max-height:160px; overflow:auto}
+.participants li{padding:6px 8px; border-radius:6px; background:rgba(255,255,255,0.01); margin-bottom:6px; font-size:0.95rem}
+
+/* chat area */
+.chat{flex:1; display:flex; flex-direction:column; background:rgba(255,255,255,0.02); border-radius:12px; overflow:hidden; min-height:520px; border:1px solid rgba(255,255,255,0.03)}
+.chat-header{display:flex; justify-content:space-between; align-items:center; padding:14px; border-bottom:1px solid rgba(255,255,255,0.03)}
+.header-actions button{padding:8px 10px; border-radius:8px; border:none; background:transparent; color:var(--muted)}
+.danger{background:var(--danger); color:#fff; border-radius:8px; padding:8px 10px}
+
+/* messages */
+.messages{flex:1; padding:18px; overflow:auto; display:flex; flex-direction:column; gap:10px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+.msg{max-width:78%; padding:10px 12px; border-radius:10px; background:rgba(255,255,255,0.03)}
+.msg .meta{font-size:0.8rem; color:var(--muted); margin-bottom:6px}
+.msg.mine{align-self:flex-end; background:linear-gradient(90deg, rgba(45,212,191,0.12), rgba(59,130,246,0.06))}
+.msg .content{white-space:pre-wrap; word-break:break-word}
+
+/* form */
+.message-form{display:flex; gap:8px; padding:12px; border-top:1px solid rgba(255,255,255,0.02)}
+.message-form input{flex:1; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit}
+.message-form button{padding:8px 12px; border-radius:8px; border:none; background:var(--accent); color:#012; font-weight:700}
+
+/* responsive */
+@media (max-width:860px){
+  .app{flex-direction:column; padding:12px}
+  .sidebar{width:100%}
+  .chat{min-height:420px}
+}
